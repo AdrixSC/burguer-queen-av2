@@ -12,23 +12,18 @@ import './App.css';
  class App extends React.Component {
    constructor(props){
      super( );
-     this.state={
-       data : []
-     }
+     this.state = { product: data.Desayuno[0].precio }
    }
 
-   handleClick = this.handleClick.bind(this)
+  
+   handleClick(event){
+     this.setState({
+       product: this.state.product
+     })
 
-   handleClick(event)
-   {
-    //console.log(event)
-     //let objeto= {
-      // dataName:dataname.target.innerText,
-     //}
-     //this.setState({data: [objeto].concat(this.state.dataname) })
      console.log(event.target.dataset.name);
      console.log(event.target.dataset.precio);
-     
+     console.log(this)
    }
 
    
@@ -61,23 +56,23 @@ import './App.css';
                         <tr>
                           <th scope="row" dataname={data.Desayuno[0].alimento}>{data.Desayuno[0].alimento}</th>
                           <td data-name={data.Desayuno[0].precio}>${data.Desayuno[0].precio}</td>
-                          <td><button type="button" data-name={data.Desayuno[0].alimento} data-precio={data.Desayuno[0].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
+                          <td><button type="button" data-name={data.Desayuno[0].alimento} data-precio={data.Desayuno[0].precio} onClick={this.handleClick.bind(this)} className="btn btn-success">Agregar</button></td>
                         </tr>
                         <tr>
                           <th scope="row" data-name={data.Desayuno[1].alimento}>{data.Desayuno[1].alimento}</th>
                           <td data-name={data.Desayuno[1].precio}>${data.Desayuno[1].precio}</td>
-                          <td><button type="button" className="btn btn-success">Agregar</button></td>
+                          <td><button type="button" data-name={data.Desayuno[1].alimento} data-precio={data.Desayuno[1].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
                         </tr>
                         <tr>
-                          <th scope="row">{data.Desayuno[2].alimento}</th>
-                          <td>${data.Desayuno[2].precio}</td>
-                          <td><button type="button" className="btn btn-success">Agregar</button></td>
+                          <th scope="row" data-name={data.Desayuno[2].alimento}>{data.Desayuno[2].alimento}</th>
+                          <td data-name={data.Desayuno[2].precio}>${data.Desayuno[2].precio}</td>
+                          <td><button type="button" data-name={data.Desayuno[2].alimento} data-precio={data.Desayuno[2].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
+                        
                         </tr>
                         <tr>
-                          <th scope="row">{data.Desayuno[3].alimento}</th>
-                          <td>{data.Desayuno[3].precio}</td>
-
-                          <td><button type="button" className="btn btn-success">Agregar</button></td>
+                          <th scope="row" data-name={data.Desayuno[3].alimento}>{data.Desayuno[3].alimento}</th>
+                          <td data-name={data.Desayuno[3].precio}>${data.Desayuno[3].precio}</td>
+                          <td><button type="button" data-name={data.Desayuno[3].alimento} data-precio={data.Desayuno[3].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
                         </tr>
                       </tbody>
                     </table>
@@ -102,20 +97,19 @@ import './App.css';
                           <th scope="row">{data.Comida.Hamburguesas[0].proteina}</th>
                           <td>${data.Comida.Hamburguesas[0].precioSencilla}</td>
                           <td>${data.Comida.Hamburguesas[1].precioDoble}</td>
-                          <td><button type="button" className="btn btn-success">Sencilla</button> <button type="button" className="btn btn-success">Doble</button></td>
+                          <td><button type="button" data-name={data.Comida.Hamburguesas[0].proteina} data-precio={data.Comida.Hamburguesas[0].precioSencilla} onClick={this.handleClick} className="btn btn-success">Sencilla</button> <button type="button" data-name={data.Comida.Hamburguesas[0].proteina} data-precio={data.Comida.Hamburguesas[0].precioDoble} onClick={this.handleClick} className="btn btn-success">Doble</button></td>
                         </tr>
                         <tr>
                           <th scope="row">{data.Comida.Hamburguesas[1].proteina}</th>
-                          <td>${data.Comida.Hamburguesas[1].precioSencilla}</td>
+                          <td>${data.Comida.Hamburguesas[0].precioSencilla}</td>
                           <td>${data.Comida.Hamburguesas[1].precioDoble}</td>
-                          <td><button type="button" className="btn btn-success">Sencilla</button> <button type="button" className="btn btn-success">Doble</button></td>
+                          <td><button type="button" data-name={data.Comida.Hamburguesas[1].proteina} data-precio={data.Comida.Hamburguesas[0].precioSencilla} onClick={this.handleClick} className="btn btn-success">Sencilla</button> <button type="button" data-name={data.Comida.Hamburguesas[1].proteina} data-precio={data.Comida.Hamburguesas[0].precioDoble} onClick={this.handleClick} className="btn btn-success">Doble</button></td>
                         </tr>
                         <tr>
                           <th scope="row">{data.Comida.Hamburguesas[2].proteina}</th>
-                          <td>${data.Comida.Hamburguesas[2].precioSencilla}</td>
-                          <td>${data.Comida.Hamburguesas[2].precioDoble}</td>
-
-                          <td><button type="button" className="btn btn-success">Sencilla</button> <button type="button" className="btn btn-success">Doble</button></td>
+                          <td>${data.Comida.Hamburguesas[0].precioSencilla}</td>
+                          <td>${data.Comida.Hamburguesas[1].precioDoble}</td>
+                          <td><button type="button" data-name={data.Comida.Hamburguesas[2].proteina} data-precio={data.Comida.Hamburguesas[0].precioSencilla} onClick={this.handleClick} className="btn btn-success">Sencilla</button> <button type="button" data-name={data.Comida.Hamburguesas[2].proteina} data-precio={data.Comida.Hamburguesas[0].precioDoble} onClick={this.handleClick} className="btn btn-success">Doble</button></td>
                         </tr>
                        </tbody>
                     </table>
@@ -134,13 +128,12 @@ import './App.css';
                         <tr>
                           <th scope="row">{data.Comida.Extras[0].alimento}</th>
                           <td>${data.Comida.Extras[0].precio}</td>
-                          <td><button type="button" className="btn btn-success">Agregar</button> </td>
+                          <td><button type="button" data-name={data.Comida.Extras[0].alimento} data-precio={data.Comida.Extras[0].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
                         </tr>
                         <tr>
                           <th scope="row">{data.Comida.Extras[1].alimento}</th>
-                          <td>${data.Comida.Extras[1].precio}</td>
-
-                          <td><button type="button" className="btn btn-success">Agregar</button> </td>
+                          <td>${data.Comida.Extras[0].precio}</td>
+                          <td><button type="button" data-name={data.Comida.Extras[1].alimento} data-precio={data.Comida.Extras[0].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
                         </tr>
                       </tbody>
                     </table>
@@ -159,13 +152,12 @@ import './App.css';
 
                           <th scope="row">{data.Comida.Complementos[0].alimento}</th>
                           <td>$ {data.Comida.Complementos[0].precio}</td>
-                          <td><button type="button" className="btn btn-success">Sencilla</button> </td>
+                          <td><button type="button" data-name={data.Comida.Complementos[0].alimento} data-precio={data.Comida.Complementos[0].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
                         </tr>
                         <tr>
                           <th scope="row">{data.Comida.Complementos[1].alimento}</th>
                           <td>$ {data.Comida.Complementos[1].precio}</td>
-
-                          <td><button type="button" className="btn btn-success">Sencilla</button> </td>
+                          <td><button type="button" data-name={data.Comida.Complementos[1].alimento} data-precio={data.Comida.Complementos[1].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
                         </tr>
                       </tbody>
                     </table>
@@ -185,13 +177,13 @@ import './App.css';
 
                           <th scope="row">{data.Comida.Bebidas[0].alimento}</th>
                           <td>$ {data.Comida.Bebidas[0].precio}</td>
-                          <td><button type="button" className="btn btn-success">Agregar</button> </td>
+                          <td><button type="button" data-name={data.Comida.Bebidas[0].alimento} data-precio={data.Comida.Bebidas[0].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
+
                         </tr>
                         <tr>
                           <th scope="row">{data.Comida.Bebidas[1].alimento}</th>
                           <td>$ {data.Comida.Bebidas[1].precio}</td>
-
-                          <td><button type="button" className="btn btn-success">Agregar</button> </td>
+                          <td><button type="button" data-name={data.Comida.Bebidas[1].alimento} data-precio={data.Comida.Bebidas[1].precio} onClick={this.handleClick} className="btn btn-success">Agregar</button></td>
                         </tr>
                       </tbody>
                     </table>
